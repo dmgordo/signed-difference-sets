@@ -103,6 +103,42 @@ def get_sds(v,k,lam,G,i):
 
     return [v,k,lam,G,D['sets'][i][0],D['sets'][i][1]]
 
+
+# code to create tables for showing a list of signed difference sets
+def init_tab():
+    T = {}
+    T['v'] = []
+    T['k'] = []
+    T['lambda'] = []
+    T['n'] = []
+    T['status'] = []
+    T['comment'] = []
+    return T
+
+def add_tab_entry(T,D):
+    v = int(D.split(',')[0].split('(')[1])
+    k = int(D.split(',')[1])
+    lam = int(D.split(',')[2].split(')')[0])
+    n = k-lam
+    T['v'] += [v]
+    T['k'] += [k]
+    T['lambda'] += [lam]
+    T['n'] += [n]
+    T['status'] += [signed_diffsets[D]['status']]
+    T['comment'] += [signed_diffsets[D]['comment']]
+
+def show_tab(T):
+    df = pd.DataFrame(T)
+    #df = df.style.hide(axis='index')
+    return df
+
+##################################################
+# The code below is sage, not python.  At the time of publishing this repository
+# there are issues with getting the SageMath kernel in binder, so I'm not calling
+# these routines in the notebook. If you want to develop Sage code to work with
+# signed difference sets, these are a starting point.
+##################################################
+
 # convert an int or vector to an Additive Abelian Group element
 def toGroup(G,g):
     # for a cyclic group elements are integers
@@ -262,33 +298,14 @@ def is_sds(D):
             
     return True
 
-
-# code to create tables for showing a list of signed difference sets
-def init_tab():
-    T = {}
-    T['v'] = []
-    T['k'] = []
-    T['lambda'] = []
-    T['n'] = []
-    T['status'] = []
-    T['comment'] = []
-    return T
-
-def add_tab_entry(T,D):
-    v = int(D.split(',')[0].split('(')[1])
-    k = int(D.split(',')[1])
-    lam = int(D.split(',')[2].split(')')[0])
-    n = k-lam
-    T['v'] += [v]
-    T['k'] += [k]
-    T['lambda'] += [lam]
-    T['n'] += [n]
-    T['status'] += [signed_diffsets[D]['status']]
-    T['comment'] += [signed_diffsets[D]['comment']]
-
-def show_tab(T):
-    df = pd.DataFrame(T)
-    df = df.style.hide(axis='index')
-    return df
+# this is what I was going to put in the notebook:
+def demo_sage_code():
+    A = sds_as_gp_ring_elt(get_sds(11,6,1,[11],0))
+    print(f'putative signed difference set: {A}')
+    B = gp_ring_elt_map(A,-1)
+    print(f'B = A^{-1} = {B}')
+    print(f'A*B = {A*B}')
+    print(f'A is a signed difference set is {is_sds(get_sds(18,13,4,[3,6],0)}')
+    
 
 
