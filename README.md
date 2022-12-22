@@ -22,7 +22,7 @@ run locally.  Anyone wishing to further develop the code to do
 research on signed difference sets is welcome to under the [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0)
 license (giving attribution to the original work).
 
-To run binder, click here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dmgordo/signed-difference-sets/master?filepath=signed_difference_sets.ipynb)
+To run the notebook with binder, click here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dmgordo/signed-difference-sets/master?filepath=signed_difference_sets.ipynb)
 
 There were issues getting the SageMath kernel in binder. Hopefully
 this will be ironed out in a future version, but for now the notebook
