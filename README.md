@@ -24,7 +24,10 @@ license (giving attribution to the original work).
 
 To run binder, click here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dmgordo/signed-difference-sets/master?filepath=signed_difference_sets.ipynb)
 
-
+There were issues getting the SageMath kernel in binder. Hopefully
+this will be ironed out in a future version, but for now the notebook
+only runs python code.  For people who wish to do further development
+there is Sage code at the bottom of sds_code.py to help get started.
 
 ## Contact 
 If you encounter any problems with this repository, please report them
