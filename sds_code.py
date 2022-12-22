@@ -303,9 +303,9 @@ def demo_sage_code():
     A = sds_as_gp_ring_elt(get_sds(11,6,1,[11],0))
     print(f'putative signed difference set: {A}')
     B = gp_ring_elt_map(A,-1)
-    print(f'B = A^{-1} = {B}')
+    print(f'B = A^(-1) = {B}')
     print(f'A*B = {A*B}')
-    print(f'A is a signed difference set is {is_sds(get_sds(18,13,4,[3,6],0)}')
+    print(f'A is a signed difference set is {is_sds(get_sds(18,13,4,[3,6],0))}')
     
 
 
